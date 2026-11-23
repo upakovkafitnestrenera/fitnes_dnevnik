@@ -1,11 +1,22 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  
+  <!-- Название и режим приложения на весь экран -->
+  <title>ДНЕВНИК</title>
+  <meta name="apple-mobile-web-app-title" content="ДНЕВНИК">
+  <meta name="application-name" content="ДНЕВНИК">
   <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>СИСТЕМА ТЕЛА — Дневник</title>
+  <meta name="theme-color" content="#141517">
+
+  <!-- Иконки для iPhone и Android -->
+  <link rel="apple-touch-icon" sizes="180x180" href="icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon.png">
+
   <style>
     html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #141517; }
     iframe { width: 100%; height: 100%; border: none; display: block; }
@@ -14,17 +25,15 @@
 <body>
   <iframe id="appFrame" src=""></iframe>
   <script>
-    // База ссылок ваших клиентов (добавляете сюда нового клиента за 5 секунд)
     const CLIENTS = {
-      'shablon': 'https://script.google.com/macros/s/AKfycbwPd0jB0pmqCieI_ysZLhM06ROrI3KIRSG_jKciTwQsG5keZSjZS-dReMQ4l1xjd9Qs/exec',
+      'shablon': 'https://google.com',
       'demo': 'https://google.com'
     };
 
     const params = new URLSearchParams(window.location.search);
-    const clientKey = params.get('c') || 'demo';
-    const targetUrl = CLIENTS[clientKey] || CLIENTS['demo'];
+    const clientKey = params.get('c') || 'shablon';
+    const targetUrl = CLIENTS[clientKey] || CLIENTS['shablon'];
     document.getElementById('appFrame').src = targetUrl;
   </script>
 </body>
 </html>
-
